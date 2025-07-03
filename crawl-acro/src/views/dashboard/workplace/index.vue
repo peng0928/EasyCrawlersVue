@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="WorkContainer">
     <div class="left-side">
       <div class="panel">
         <Banner />
@@ -56,12 +56,12 @@
 
 <script lang="ts">
   export default {
-    name: '', // If you want the include property of keep-alive to take effect, you must name the component
+    name: 'Workplace', // If you want the include property of keep-alive to take effect, you must name the component
   };
 </script>
 
 <style lang="less" scoped>
-  .container {
+  .WorkContainer {
     background-color: var(--color-fill-2);
     padding: 16px 20px;
     padding-bottom: 0;
