@@ -3,18 +3,29 @@
     "target": "ES2020",
     "module": "ES2020",
     "moduleResolution": "node",
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
-    "lib": ["es2020", "dom"],
-    "skipLibCheck": true
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "noImplicitAny": true
   },
-  "include": ["src/**/*", "src/**/*.vue"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

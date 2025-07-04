@@ -19,6 +19,9 @@ importers:
       '@arco-design/web-vue':
         specifier: ^2.44.7
         version: 2.56.3(vue@3.5.13(typescript@4.9.5))
+      '@arco-themes/react-readco':
+        specifier: ^0.0.5
+        version: 0.0.5(@arco-design/web-react@2.66.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
       '@vueuse/core':
         specifier: ^9.3.0
         version: 9.13.0(vue@3.5.13(typescript@4.9.5))
@@ -32,7 +35,7 @@ importers:
         specifier: ^1.11.5
         version: 1.11.13
       echarts:
-        specifier: ^5.4.0
+        specifier: ^5.6.0
         version: 5.6.0
       lodash:
         specifier: ^4.17.21
@@ -56,8 +59,8 @@ importers:
         specifier: ^3.2.40
         version: 3.5.13(typescript@4.9.5)
       vue-echarts:
-        specifier: ^6.2.3
-        version: 6.7.3(@vue/runtime-core@3.5.13)(echarts@5.6.0)(vue@3.5.13(typescript@4.9.5))
+        specifier: ^7.0.3
+        version: 7.0.3(@vue/runtime-core@3.5.13)(echarts@5.6.0)(vue@3.5.13(typescript@4.9.5))
       vue-i18n:
         specifier: ^9.2.2
         version: 9.14.2(vue@3.5.13(typescript@4.9.5))
@@ -241,6 +244,11 @@ packages:
 
   '@arco-plugins/vite-vue@1.4.5':
     resolution: {integrity: sha512-2pJ9mpZP9mRD7NGZwRsZTS9C/US5ilEBBUqxN5Qgnd3Td50u9apJVKAABCZjG2K2eHiyZg7Fd9XhgHJXVJJmsw==}
+
+  '@arco-themes/react-readco@0.0.5':
+    resolution: {integrity: sha512-xoZidX24chZxbaU1zEWYVlYxmUFwSzzv6wHxyK3NZCtt+Rv56e/Tgv5oOzw7hUxgH8e76ir+ar8/7SjzBnDerQ==}
+    peerDependencies:
+      '@arco-design/web-react': ^2.48.1
 
   '@babel/code-frame@7.26.2':
     resolution: {integrity: sha512-RJlIHRueQgwWitWgF8OdFYGZX328Ax5BCemNGlqHfplnRT9ESi8JkFlvaVYbS+UubVY6dpv87Fs2u5M29iNFVQ==}
@@ -4358,9 +4366,6 @@ packages:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
 
-  resize-detector@0.3.0:
-    resolution: {integrity: sha512-R/tCuvuOHQ8o2boRP6vgx8hXCCy87H1eY9V5imBYeVNyNVpuL9ciReSccLj2gDcax9+2weXy3bc8Vv+NRXeEvQ==}
-
   resize-observer-polyfill@1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
 
@@ -5298,16 +5303,13 @@ packages:
       '@vue/composition-api':
         optional: true
 
-  vue-echarts@6.7.3:
-    resolution: {integrity: sha512-vXLKpALFjbPphW9IfQPOVfb1KjGZ/f8qa/FZHi9lZIWzAnQC1DgnmEK3pJgEkyo6EP7UnX6Bv/V3Ke7p+qCNXA==}
+  vue-echarts@7.0.3:
+    resolution: {integrity: sha512-/jSxNwOsw5+dYAUcwSfkLwKPuzTQ0Cepz1LxCOpj2QcHrrmUa/Ql0eQqMmc1rTPQVrh2JQ29n2dhq75ZcHvRDw==}
     peerDependencies:
-      '@vue/composition-api': ^1.0.5
       '@vue/runtime-core': ^3.0.0
-      echarts: ^5.4.1
-      vue: ^2.6.12 || ^3.1.1
+      echarts: ^5.5.1
+      vue: ^2.7.0 || ^3.1.1
     peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
       '@vue/runtime-core':
         optional: true
 
@@ -5528,6 +5530,10 @@ snapshots:
       '@types/node': 16.18.123
     transitivePeerDependencies:
       - supports-color
+
+  '@arco-themes/react-readco@0.0.5(@arco-design/web-react@2.66.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
+    dependencies:
+      '@arco-design/web-react': 2.66.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
   '@babel/code-frame@7.26.2':
     dependencies:
@@ -9614,7 +9620,7 @@ snapshots:
     dependencies:
       htmlparser2: 3.10.1
       postcss: 7.0.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-jsx@0.36.4)(postcss-less@3.1.4)(postcss-markdown@0.36.0)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-jsx@0.36.4(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-markdown@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-scss@2.1.1)(postcss@7.0.39)
 
   postcss-html@1.8.0:
     dependencies:
@@ -9639,7 +9645,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.0
       postcss: 7.0.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-jsx@0.36.4)(postcss-less@3.1.4)(postcss-markdown@0.36.0)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-jsx@0.36.4(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-markdown@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-scss@2.1.1)(postcss@7.0.39)
     transitivePeerDependencies:
       - supports-color
 
@@ -9658,7 +9664,7 @@ snapshots:
   postcss-markdown@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39):
     dependencies:
       postcss: 7.0.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-jsx@0.36.4)(postcss-less@3.1.4)(postcss-markdown@0.36.0)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-jsx@0.36.4(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-markdown@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-scss@2.1.1)(postcss@7.0.39)
       remark: 10.0.1
       unist-util-find-all-after: 1.0.5
 
@@ -9715,7 +9721,7 @@ snapshots:
     dependencies:
       postcss: 8.5.6
 
-  postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-jsx@0.36.4)(postcss-less@3.1.4)(postcss-markdown@0.36.0)(postcss-scss@2.1.1)(postcss@7.0.39):
+  postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-jsx@0.36.4(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-markdown@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-scss@2.1.1)(postcss@7.0.39):
     dependencies:
       postcss: 7.0.39
     optionalDependencies:
@@ -9982,8 +9988,6 @@ snapshots:
   require-directory@2.1.1: {}
 
   require-from-string@2.0.2: {}
-
-  resize-detector@0.3.0: {}
 
   resize-observer-polyfill@1.5.1: {}
 
@@ -10553,7 +10557,7 @@ snapshots:
       postcss-sass: 0.3.5
       postcss-scss: 2.1.1
       postcss-selector-parser: 3.1.2
-      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-jsx@0.36.4)(postcss-less@3.1.4)(postcss-markdown@0.36.0)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-jsx@0.36.4(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-markdown@0.36.0(postcss-syntax@0.36.2(postcss-html@1.8.0)(postcss@8.5.6))(postcss@7.0.39))(postcss-scss@2.1.1)(postcss@7.0.39)
       postcss-value-parser: 3.3.1
       resolve-from: 4.0.0
       signal-exit: 3.0.7
@@ -11064,14 +11068,15 @@ snapshots:
     dependencies:
       vue: 3.5.13(typescript@4.9.5)
 
-  vue-echarts@6.7.3(@vue/runtime-core@3.5.13)(echarts@5.6.0)(vue@3.5.13(typescript@4.9.5)):
+  vue-echarts@7.0.3(@vue/runtime-core@3.5.13)(echarts@5.6.0)(vue@3.5.13(typescript@4.9.5)):
     dependencies:
       echarts: 5.6.0
-      resize-detector: 0.3.0
       vue: 3.5.13(typescript@4.9.5)
       vue-demi: 0.13.11(vue@3.5.13(typescript@4.9.5))
     optionalDependencies:
       '@vue/runtime-core': 3.5.13
+    transitivePeerDependencies:
+      - '@vue/composition-api'
 
   vue-eslint-parser@9.4.3(eslint@8.57.1):
     dependencies:

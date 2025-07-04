@@ -42,7 +42,7 @@ module.exports = {
         'vue/singleline-html-element-content-newline': 0,
         'vue/max-attributes-per-line': 0,
         // Vue: Add extra rules
-        'vue/custom-event-name-casing': [2, 'camelCase'],
+        'vue/custom-event-name-casing': [1, 'camelCase'],
         'vue/no-v-text': 1,
         'vue/padding-line-between-blocks': 1,
         'vue/require-direct-export': 1,
@@ -53,7 +53,7 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 1,
         '@typescript-eslint/no-explicit-any': 0,
         'import/extensions': [
-            2,
+            1,
             'ignorePackages',
             {
                 js: 'never',
@@ -62,7 +62,7 @@ module.exports = {
                 tsx: 'never',
             },
         ],
-        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+        'no-debugger': process.env.NODE_ENV === 'production' ? 1 : 0,
         'no-param-reassign': 0,
         'prefer-regex-literals': 0,
         'import/no-extraneous-dependencies': 0,

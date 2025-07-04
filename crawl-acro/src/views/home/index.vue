@@ -1,11 +1,12 @@
 <template>
-  <div class="bg-red-500 font-bold p-5">
-    111
+  <div class="p-5">
+    <System/>
   </div>
 
 </template>
 
 <script lang="ts" setup>
+import System from './components/System.vue'
 
 </script>
 
