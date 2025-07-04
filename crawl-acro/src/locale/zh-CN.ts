@@ -8,6 +8,11 @@ import localeSettings from './zh-CN/settings';
 export default {
   'menu.dashboard': '仪表盘',
   'menu.home': '首页',
+  'menu.spider': '爬虫',
+  'menu.task': '任务',
+  'menu.schedule': '定时调度',
+  'menu.setting': '设置',
+  'menu.project': '项目',
   'menu.system': '系统监控',
   'menu.server.dashboard': '仪表盘-服务端',
   'menu.server.workplace': '工作台-服务端',
