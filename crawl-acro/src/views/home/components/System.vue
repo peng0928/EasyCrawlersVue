@@ -1,16 +1,16 @@
 <template>
-  <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-12">
-    <div class="">
-      <a-card class="rounded-xl" hoverable size="small">
-        <div class="text-xl flex justify-between">
+  <div class='grid md:grid-cols-1 lg:grid-cols-3 gap-12'>
+    <div class=''>
+      <a-card class='rounded-xl' hoverable size='small'>
+        <div class='text-xl flex justify-between'>
           <a-typography-text bold>
             CPU
           </a-typography-text>
-          <IconFont type="icon-microchip" :size="26" class="text-blue-500"/>
+          <IconFont type='icon-microchip' :size='26' class='text-blue-500'/>
         </div>
-        <VCharts :option="option" :autoResize="true" width="150" height="150" class="h-60"/>
-        <div v-for="item in systemInfo.microchip" :key="item.name" class="flex justify-between items-center">
-          <a-typography-text class="text-sm">
+        <VCharts :option='option' :autoResize='true' width='150' height='150' class='h-60'/>
+        <div v-for='item in systemInfo.microchip' :key='item.name' class='flex justify-between items-center'>
+          <a-typography-text class='text-sm'>
             {{ item.name }}:
           </a-typography-text>
           <a-typography-text bold>
@@ -20,16 +20,16 @@
       </a-card>
     </div>
     <div>
-      <a-card class="rounded-xl" hoverable size="small">
-        <div class="text-xl flex justify-between">
+      <a-card class='rounded-xl' hoverable size='small'>
+        <div class='text-xl flex justify-between'>
           <a-typography-text bold>
             内存
           </a-typography-text>
-          <IconFont type="icon-memory" :size="26" class="text-yellow-600"/>
+          <IconFont type='icon-memory' :size='26' class='text-yellow-600'/>
         </div>
-        <VCharts :option="option" :autoResize="true" width="150" height="150" class="h-60"/>
-        <div class="flex justify-between items-center" v-for="item in systemInfo.memory" :key="item.name">
-          <a-typography-text class="text-sm">
+        <VCharts :option='option' :autoResize='true' width='150' height='150' class='h-60'/>
+        <div class='flex justify-between items-center' v-for='item in systemInfo.memory' :key='item.name'>
+          <a-typography-text class='text-sm'>
             {{ item.name }}:
           </a-typography-text>
           <a-typography-text bold>
@@ -39,16 +39,16 @@
       </a-card>
     </div>
     <div>
-      <a-card class="rounded-xl" hoverable size="small">
-        <div class="text-xl flex justify-between">
+      <a-card class='rounded-xl' hoverable size='small'>
+        <div class='text-xl flex justify-between'>
           <a-typography-text bold>
             磁盘
           </a-typography-text>
-          <IconFont type="icon-a-ssddiskspace" :size="26" class="text-purple-600"/>
+          <IconFont type='icon-a-ssddiskspace' :size='26' class='text-purple-600'/>
         </div>
-        <VCharts :option="option" :autoResize="true" width="150" height="150" class="h-60"/>
-        <div class="flex justify-between items-center" v-for="item in systemInfo.memory" :key="item.name">
-          <a-typography-text class="text-sm">
+        <VCharts :option='option' :autoResize='true' width='150' height='150' class='h-60'/>
+        <div class='flex justify-between items-center' v-for='item in systemInfo.memory' :key='item.name'>
+          <a-typography-text class='text-sm'>
             {{ item.name }}:
           </a-typography-text>
           <a-typography-text bold>
@@ -60,8 +60,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import {ref} from "vue";
+<script setup lang='ts'>
+import {ref} from 'vue';
 import VCharts from '@/components/chart/index.vue'
 
 import useLoading from '@/hooks/loading';
@@ -154,27 +154,27 @@ const systemInfo = ref(
     {
       microchip: [
         {
-          name: "负载",
-          value: "47.6%",
+          name: '负载',
+          value: '47.6%',
         }, {
-          name: "核心数",
-          value: "8",
+          name: '核心数',
+          value: '8',
         }, {
-          name: "架构",
-          value: "x86",
+          name: '架构',
+          value: 'x86',
         }
       ],
       memory: [
         {
-          name: "已用内存",
-          value: "7GB",
+          name: '已用内存',
+          value: '7GB',
         },
         {
-          name: "总内存",
-          value: "16GB",
+          name: '总内存',
+          value: '16GB',
         }, {
-          name: "可用内存",
-          value: "9GB",
+          name: '可用内存',
+          value: '9GB',
         }
       ]
     }

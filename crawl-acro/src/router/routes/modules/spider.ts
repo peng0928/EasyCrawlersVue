@@ -15,7 +15,7 @@ const DASHBOARD: AppRouteRecordRaw = {
         {
             path: 'project',
             name: 'spiderProject',
-            component: () => import('@/views/home/index.vue'),
+            component: () => import('@/views/spider/components/Project.vue'),
             meta: {
                 locale: 'menu.project',
                 requiresAuth: true,
