@@ -8,7 +8,7 @@ const DASHBOARD: AppRouteRecordRaw = {
     meta: {
         locale: 'menu.spider',
         requiresAuth: true,
-        icon: 'icon-apps',
+        icon2: 'icon-Spider',
         order: 0,
     },
     children: [
@@ -20,6 +20,7 @@ const DASHBOARD: AppRouteRecordRaw = {
                 locale: 'menu.project',
                 requiresAuth: true,
                 roles: ['*'],
+                icon2: 'icon-xiangmu',
             },
         },
         {
@@ -30,6 +31,7 @@ const DASHBOARD: AppRouteRecordRaw = {
                 locale: 'menu.spider',
                 requiresAuth: true,
                 roles: ['*'],
+                icon2: 'icon-Spider',
             },
         },
         {
@@ -40,6 +42,7 @@ const DASHBOARD: AppRouteRecordRaw = {
                 locale: 'menu.task',
                 requiresAuth: true,
                 roles: ['*'],
+                icon2: 'icon-tasks',
             },
         },
         {
@@ -50,6 +53,7 @@ const DASHBOARD: AppRouteRecordRaw = {
                 locale: 'menu.schedule',
                 requiresAuth: true,
                 roles: ['*'],
+                icon2: 'icon-tiaoduguanli',
             },
         },
     ],
