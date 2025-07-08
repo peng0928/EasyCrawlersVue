@@ -14,30 +14,30 @@ const DASHBOARD: AppRouteRecordRaw = {
     children: [
         {
             path: 'project',
-            name: 'spiderProject',
+            name: 'dbConfig',
             component: () => import('@/views/home/index.vue'),
             meta: {
-                locale: 'menu.project',
+                locale: 'menu.dbConfig',
                 requiresAuth: true,
                 roles: ['*'],
             },
         },
         {
             path: '',
-            name: 'spiderSpider',
+            name: 'runConfig',
             component: () => import('@/views/home/index.vue'),
             meta: {
-                locale: 'menu.spider',
+                locale: 'menu.runConfig',
                 requiresAuth: true,
                 roles: ['*'],
             },
         },
         {
             path: 'task',
-            name: 'spiderTask',
+            name: 'logConfig',
             component: () => import('@/views/home/index.vue'),
             meta: {
-                locale: 'menu.task',
+                locale: 'menu.logConfig',
                 requiresAuth: true,
                 roles: ['*'],
             },

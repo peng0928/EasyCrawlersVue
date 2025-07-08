@@ -5,7 +5,7 @@
         <div class="p-2">
           <div class="text-xl font-bold">
             <a-typography-text>
-              项目
+              爬虫
             </a-typography-text>
           </div>
           <div class="grid md:grid-cols-1 lg:grid-cols-12 gap-6">
@@ -48,12 +48,21 @@
               </div>
             </div>
           </div>
-          <a-button type="primary">
-            <template #icon>
-              <IconFont type='icon-xinzeng1-copy'/>
-            </template>
-            新增
-          </a-button>
+          <div class="flex gap-3">
+            <a-button type="primary">
+              <template #icon>
+                <IconFont type='icon-xinzeng1-copy'/>
+              </template>
+              新增
+            </a-button>
+            <a-button type="primary">
+              <template #icon>
+                <IconFont type='icon-daoru-copy'/>
+              </template>
+              导入
+            </a-button>
+          </div>
+
           <a-divider/>
 
           <a-table :columns="columns" :data="data" :bordered="false"/>
@@ -78,14 +87,19 @@ const handleSubmit = (data: any) => {
 
 const columns = [
   {
-    title: '名称',
-    dataIndex: 'name',
-  }, {
-    title: '标签',
+    title: '项目',
     dataIndex: 'name',
   },
   {
-    title: '爬虫数',
+    title: '名称',
+    dataIndex: 'name',
+  },
+  {
+    title: '类型',
+    dataIndex: 'name',
+  },
+  {
+    title: '运行命令',
     dataIndex: 'salary',
   },
   {

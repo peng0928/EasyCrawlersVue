@@ -26,7 +26,7 @@ const DASHBOARD: AppRouteRecordRaw = {
         {
             path: '',
             name: 'spiderSpider',
-            component: () => import('@/views/home/index.vue'),
+            component: () => import('@/views/spider/components/Spider.vue'),
             meta: {
                 locale: 'menu.spider',
                 requiresAuth: true,
@@ -35,9 +35,31 @@ const DASHBOARD: AppRouteRecordRaw = {
             },
         },
         {
+            path: '/spider/add',
+            name: 'spiderSpiderAdd',
+            component: () => import('@/views/spider/components/SpiderAdd.vue'),
+            meta: {
+                locale: 'menu.spiderAdd',
+                requiresAuth: true,
+                roles: ['*'],
+                hideInMenu: true
+            },
+        },
+        {
+            path: '/spider/code',
+            name: 'spiderSpiderCode',
+            component: () => import('@/views/spider/components/SpiderCode.vue'),
+            meta: {
+                locale: 'menu.spiderCode',
+                requiresAuth: true,
+                roles: ['*'],
+                hideInMenu: true
+            },
+        },
+        {
             path: 'task',
             name: 'spiderTask',
-            component: () => import('@/views/home/index.vue'),
+            component: () => import('@/views/spider/components/Spider.vue'),
             meta: {
                 locale: 'menu.task',
                 requiresAuth: true,
