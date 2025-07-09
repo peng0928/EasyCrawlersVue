@@ -18,7 +18,7 @@ import '@/api/interceptor';
 const app = createApp(App);
 // 配置 IconFont
 const IconFont = Icon.addFromIconFontCn({
-  src: 'https://at.alicdn.com/t/c/font_4722668_gvtkrmhtyps.js',
+  src: 'https://at.alicdn.com/t/c/font_4722668_7c68cdverin.js',
 });
 app.component('IconFont', IconFont);
 app.use(ArcoVue, {});
