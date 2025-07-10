@@ -1,7 +1,47 @@
 <template>
   <div :class="colorTheme.t" class="">
-    <div class="flex  gap-5 justify-between">
-      <div>
+    <div class="flex gap-5 justify-between">
+      <div
+          class="flex gap-5 p-2 overflow-x-auto max-w-[62vw] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div v-for="(item, index) in tabs" :key="index" class="p-1">
+          <div class="flex gap-2 tabs">
+            <div class="">
+              <div
+                  class="border-b-2 border-transparent border-blue-500 text-blue-500 transition-colors duration-200 cursor-pointer flex items-center"
+                  v-if="item.path===tabActive">
+                <IconFont
+                    :type="item.icon"
+                    :size="20"
+                    style="color: green"
+                />
+                {{ item.name }}
+              </div>
+              <div v-else>
+                <div
+                    class="border-b-2 border-transparent hover:border-blue-500 hover:text-blue-500 transition-colors duration-200 cursor-pointer flex items-center"
+                    @click="changeTabActive(item.path)"
+                >
+                  <IconFont
+                      :type="item.icon"
+                      :size="20"
+                  />
+                  <div>
+                    {{ item.name }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="items-center text-center  extra-content">
+              <a-tooltip content="关闭">
+                <IconFont
+                    type="icon-guanbi1-2"
+                    :size="15"
+                    class="cursor-pointer"
+                />
+              </a-tooltip>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="text-center items-center pr-10 pt-1">
         <span>
@@ -69,10 +109,12 @@ interface IProps {
   height?: string;
   disabled?: boolean;
   code?: string;
+  tabs: any;
+  tabActive: any;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  height: '78vh',
+  height: '74vh',
   disabled: false,
   code: "print('hello world')",
 });
@@ -86,7 +128,7 @@ const code = ref(props.code);
 const extensions = [python(), oneDark];
 
 const handleChange = (value: string, viewUpdate: any) => {
-  console.log('Code changed:', value);
+  console.log('Code changed:',);
 }
 
 const handleStateUpdate = (viewUpdate: any) => {
@@ -97,19 +139,16 @@ const handleStateUpdate = (viewUpdate: any) => {
   state.cursor = data[0].anchor
   state.length = viewUpdate.state.doc.length
   state.lines = viewUpdate.state.doc.lines
-  console.log('props', props, props.tab)
-
 }
 
 const handleInput = (value: string) => {
-  console.log('Code input:', value);
+  console.log('Code input:');
 }
 const view = shallowRef()
 const handleReady = (editor: any) => {
   view.value = editor.view
 }
 const scrollContainer = ref<HTMLElement | null>(null)
-
 const scrollToBottom = () => {
   nextTick(() => {
     const scrollHeight = view.value
@@ -121,13 +160,6 @@ const scrollToBottom = () => {
   })
 }
 
-watch(
-    () => props.code,
-    (newVal,) => {
-      code.value = newVal
-      scrollToBottom()
-    }
-);
 
 const colorConfig = {
   b: {
@@ -139,6 +171,14 @@ const colorConfig = {
     dark: 'bg-[#282c34]  text-white'
   }
 }
+watch(
+    () => props.code,
+    (newVal,) => {
+      code.value = newVal
+      scrollToBottom()
+    }
+);
+
 watch(
     () => appStore.appCurrentSetting.theme,
     (newVal, oldVal) => {
@@ -161,6 +201,12 @@ onMounted(() => {
   }
 })
 
+const emit = defineEmits(['update:tabActive']);
+const changeTabActive = (e: any) => {
+  console.log(e)
+  emit('update:tabActive', e);
+}
+
 </script>
 
 
@@ -174,4 +220,12 @@ onMounted(() => {
   }
 }
 
+
+.extra-content {
+  display: none;
+}
+
+.tabs:hover .extra-content {
+  display: flex;
+}
 </style>

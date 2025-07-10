@@ -67,6 +67,9 @@ importers:
       sortablejs:
         specifier: ^1.15.0
         version: 1.15.6
+      tailwind-scrollbar-hide:
+        specifier: ^4.0.0
+        version: 4.0.0(tailwindcss@3.4.1(ts-node@10.9.2(@types/node@20.5.1)(typescript@4.9.5)))
       vue:
         specifier: ^3.2.40
         version: 3.5.13(typescript@4.9.5)
@@ -4977,6 +4980,11 @@ packages:
   table@6.9.0:
     resolution: {integrity: sha512-9kY+CygyYM6j02t5YFHbNz2FN5QmYGv9zAjVp4lCDjlCw7amdckXlEt/bjMhUIfj4ThGRE4gCUH5+yGnNuPo5A==}
     engines: {node: '>=10.0.0'}
+
+  tailwind-scrollbar-hide@4.0.0:
+    resolution: {integrity: sha512-gobtvVcThB2Dxhy0EeYSS1RKQJ5baDFkamkhwBvzvevwX6L4XQfpZ3me9s25Ss1ecFVT5jPYJ50n+7xTBJG9WQ==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 4.0.0 || >= 4.0.0-beta.8 || >= 4.0.0-alpha.20'
 
   tailwindcss@3.4.1:
     resolution: {integrity: sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA==}
@@ -10818,6 +10826,10 @@ snapshots:
       slice-ansi: 4.0.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+
+  tailwind-scrollbar-hide@4.0.0(tailwindcss@3.4.1(ts-node@10.9.2(@types/node@20.5.1)(typescript@4.9.5))):
+    dependencies:
+      tailwindcss: 3.4.1(ts-node@10.9.2(@types/node@20.5.1)(typescript@4.9.5))
 
   tailwindcss@3.4.1(ts-node@10.9.2(@types/node@20.5.1)(typescript@4.9.5)):
     dependencies:
