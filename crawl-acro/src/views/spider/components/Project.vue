@@ -24,7 +24,6 @@
                         placeholder="please enter your username..."
                     />
                   </a-form-item>
-
                   <a-form-item field="name" tooltip="" label="时间">
                     <a-input
                         v-model="form.name"
@@ -146,7 +145,7 @@
     </div>
 
     <a-modal v-model:visible="addVisible" @ok="handleOk" @cancel="addVisible=false" :hide-title="true">
-      <a-form :model="ProjectForm" @submit="handleSubmit">
+      <a-form :model="ProjectForm" @submit="handleSubmit" class="pt-8">
         <a-form-item field="name" label="项目名">
           <a-input
               v-model="ProjectForm.title"
@@ -154,7 +153,7 @@
           />
         </a-form-item>
         <a-form-item field="post" label="标签">
-          <a-input-tag v-model:model-value="ProjectForm.tag" placeholder="标签" allow-clear/>
+          <a-input-tag v-model:model-value="ProjectForm.tag" placeholder="请输入内容进行回车" allow-clear/>
         </a-form-item>
         <a-form-item field="post" label="备注">
           <a-input v-model="ProjectForm.remarks" placeholder="备注"/>

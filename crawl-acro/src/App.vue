@@ -36,4 +36,7 @@ const locale = computed(() => {
 ::-webkit-scrollbar-thumb:horizontal {
   background: #888;  /* 水平滚动条颜色 */
 }
+::-webkit-scrollbar-thumb:vertical {
+  background: #888;  /* 水平滚动条颜色 */
+}
 </style>

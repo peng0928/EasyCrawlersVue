@@ -70,7 +70,7 @@
       @input="handleInput"
       @ready="handleReady"
       ref="scrollContainer"
-      class="overflow-y-auto "
+      class="overflow-y-auto custom-scroll"
   />
   <div :class="colorTheme.b">
     <div class="infos">
@@ -238,4 +238,18 @@ const closeTab = (e: any) => {
 .tabs:hover .extra-content {
   display: flex;
 }
+
+.custom-scroll {
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+  -ms-overflow-style: scrollbar; /* IE10+ */
+
+  ::-webkit-scrollbar {
+    width: 8px !important; /* 隐藏垂直滚动条 */
+    height: 8px !important; /* 设置水平滚动条高度（可选） */
+  }
+}
+
+
 </style>
