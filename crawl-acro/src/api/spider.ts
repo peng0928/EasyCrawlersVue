@@ -1,27 +1,30 @@
-import axios from 'axios';
-import type { RouteRecordNormalized } from 'vue-router';
-import { UserState } from '@/store/modules/user/types';
+import http from './http'
 
-export interface LoginData {
-  username: string;
-  password: string;
+export interface CreateProjectParams {
+    projectName: string
+    tags: string
+    remarks?: string // 备注是可选的
 }
 
-export interface LoginRes {
-  token: string;
-}
-export function login(data: LoginData) {
-  return axios.post<LoginRes>('/api/user/login', data);
-}
-
-export function logout() {
-  return axios.post<LoginRes>('/api/user/logout');
+// 项目创建成功的响应类型
+export interface ProjectResult {
+    projectName: string
+    tags: string[]
+    remark?: string
+    createTime: string
 }
 
-export function getUserInfo() {
-  return axios.post<UserState>('/api/user/info');
+export interface ProjectListResult {
+    page: int
+    size: int
 }
 
-export function getMenuList() {
-  return axios.post<RouteRecordNormalized[]>('/api/user/menu');
+// 创建项目
+export const createProject = (data: CreateProjectParams) => {
+    return http.post<ProjectResult>('/project/create', data)
+}
+
+// 获取项目列表
+export const getProjectList = (data: ProjectListResult) => {
+    return http.post<ProjectResult[]>('/project/list', data)
 }

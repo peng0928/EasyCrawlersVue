@@ -1,109 +1,150 @@
 <template>
-  <div class='p-3 max-h-[80vh]' >
-    <div class="pt-1 pb-1 flex gap-3">
-      <a-button>
-        新建
-      </a-button>
-      <a-upload action="/">
-      </a-upload>
-    </div>
-    <div class="flex ">
-      <transition
-          enter-active-class="transition duration-300 ease-out"
-          enter-from-class="transform translate-y-4 opacity-0"
-          enter-to-class="transform translate-y-0 opacity-300"
-          leave-active-class="transition duration-300 ease-in"
-          leave-from-class="transform translate-y-0 opacity-300"
-          leave-to-class="transform translate-y-4 opacity-0"
-      >
-        <div
-            class="resize-x direction-rtl w-1/5 max-w-2/5 pl-3 pr-3 pb-3 rounded-l-lg  overflow-x-auto  overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            :class="theme"
-            v-if="menuState.leftMenu">
-          <div class="sticky top-0  z-10 py-2 flex gap-3" :class="theme">
-            <a-input
-                style="margin-bottom: 8px; "
-                v-model="searchKey"
-            >
-              <template #prefix>
-                <icon-search/>
-              </template>
-            </a-input>
-            <a-button type="">
+  <div>
+    <a-tabs class="">
+      <a-tab-pane key="1">
+        <template #title>
+          <icon-calendar/>
+          文件
+        </template>
+        <div class='pr-3 pl-3 pb-3'>
+          <div class="pt-1 pb-1  gap-3 flex">
+            <a-button type="primary">
               <template #icon>
-                <IconFont
-                    :type="icon.close"
-                    :size="15"
-                    @click="menuState.leftMenu=false"
-                />
+                <icon-plus/>
               </template>
             </a-button>
+            <a-button type="primary" status="success">
+              <template #icon>
+                <icon-caret-right/>
+              </template>
+            </a-button>
+            <a-upload action="/">
+            </a-upload>
+
           </div>
-          <a-tree
-              :default-selected-keys="['0-0-1']"
-              :data="treeData"
-              class="tree-demo text-white overflow-y-auto"
-              v-if="treeData.length"
-              @select="menuCheck"
-          >
-            <template #extra="nodeData">
-              <div class="extra-content absolute top-2 right-0 flex items-center gap-2">
-                <a-tooltip content="新增">
-                  <IconFont
-                      :type="icon.a"
-                      :size="15"
-                      @click="() => onIconClick(nodeData)"
-                  />
-                </a-tooltip>
-                <a-tooltip content="修改">
-                  <IconFont
-                      :type="icon.e"
-                      :size="18"
-                      @click="() => onIconClick(nodeData)"
-                  />
-                </a-tooltip>
-                <a-tooltip content="删除">
-                  <IconFont
-                      :type="icon.d"
-                      :size="22"
-                      :style="{'--color': color}"
-                      @click="() => onIconClick(nodeData)"
-                  />
-                </a-tooltip>
+          <div class="flex">
+            <transition
+                enter-active-class="transition duration-300 ease-out"
+                enter-from-class="transform translate-y-4 opacity-0"
+                enter-to-class="transform translate-y-0 opacity-300"
+                leave-active-class="transition duration-300 ease-in"
+                leave-from-class="transform translate-y-0 opacity-300"
+                leave-to-class="transform translate-y-4 opacity-0"
+            >
+              <div
+                  class="resize-x direction-rtl w-1/5 max-w-2/5 pl-3 pr-3 pb-3 rounded-l-lg  overflow-x-auto  overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  :class="theme"
+                  v-if="menuState.leftMenu">
+                <div class="sticky top-0 z-10 py-2 flex gap-3" :class="theme">
+                  <a-input
+                      style="margin-bottom: 8px; "
+                      v-model="searchKey"
+                  >
+                    <template #prefix>
+                      <icon-search/>
+                    </template>
+                  </a-input>
+                  <a-button type="">
+                    <template #icon>
+                      <IconFont
+                          :type="icon.close"
+                          :size="15"
+                          @click="menuState.leftMenu=false"
+                      />
+                    </template>
+                  </a-button>
+                </div>
+                <a-tree
+                    :default-selected-keys="['0-0-1']"
+                    :data="treeData"
+                    class="tree-demo text-white overflow-y-auto"
+                    v-if="treeData.length"
+                    @select="menuCheck"
+                >
+                  <template #extra="nodeData">
+                    <div class="extra-content absolute top-2 right-0 flex items-center gap-2">
+                      <VTooltip>
+                        <IconFont
+                            :type="icon.a"
+                            :size="15"
+                            @click="() => onIconClick(nodeData)"
+                        />
+                        <template #popper>
+                          新增
+                        </template>
+                      </VTooltip>
+                      <VTooltip>
+                        <IconFont
+                            :type="icon.e"
+                            :size="18"
+                            @click="() => onIconClick(nodeData)"
+                        />
+                        <template #popper>
+                          修改
+                        </template>
+                      </VTooltip>
+                      <VTooltip>
+                          <IconFont
+                              :type="icon.d"
+                              :size="18"
+                              @click="() => onIconClick(nodeData)"
+                          />
+                        <template #popper>
+                          删除
+                        </template>
+                      </VTooltip>
+                    </div>
+                  </template>
+                </a-tree>
+                <div v-else>
+                  <div class="text-center">
+                    <IconFont type='icon-zanwushuju' :size="150"/>
+                    <div>
+                      <a-typography-text>
+                        暂无数据
+                      </a-typography-text>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </template>
-          </a-tree>
-          <div v-else>
-            <div class="text-center">
-              <IconFont type='icon-zanwushuju' :size="150"/>
-              <div>
-                <a-typography-text>
-                  暂无数据
-                </a-typography-text>
+              <div v-else>
+                <div class="pr-3">
+                  <a-button type="">
+                    <template #icon>
+                      <IconFont
+                          type="icon-zhankai"
+                          :size="20"
+                          @click="menuState.leftMenu=true"
+                      />
+                    </template>
+                  </a-button>
+                </div>
               </div>
+            </transition>
+            <div class="w-full flex-1 overflow-x-auto">
+              <codemirror :code="code" :tabs="treeMenu" :tabActive="treeMenuActive"
+                          @update:tabActive="treeMenuActive = $event"
+                          @update:tabs="treeMenu = $event"
+              />
             </div>
           </div>
         </div>
-        <div v-else>
-          <div class="pr-3">
-            <a-button type="">
-              <template #icon>
-                <IconFont
-                    type="icon-zhankai"
-                    :size="20"
-                    @click="menuState.leftMenu=true"
-                />
-              </template>
-            </a-button>
-          </div>
-        </div>
-      </transition>
-      <div class="w-full flex-1 ">
-        <codemirror :code="code" :tabs="treeMenu" :tabActive="treeMenuActive"
-         @update:tabActive="treeMenuActive = $event"
-        />
-      </div>
-    </div>
+      </a-tab-pane>
+      <a-tab-pane key="2">
+        <template #title>
+          <icon-clock-circle/>
+          任务
+        </template>
+        Content of Tab Panel 2
+      </a-tab-pane>
+      <a-tab-pane key="3">
+        <template #title>
+          <icon-user/>
+          调度
+        </template>
+        Content of Tab Panel 3
+      </a-tab-pane>
+    </a-tabs>
   </div>
 </template>
 
@@ -330,4 +371,5 @@ const menuCheck = (e: any, data: any) => {
 .arco-tree-node:hover .extra-content {
   display: flex;
 }
+
 </style>

@@ -53,6 +53,12 @@
         </div>
       </a-card>
     </div>
+
+    <a-modal v-model:visible="addVisible" @ok="handleOk" @cancel="addVisible=false">
+      <div>You can customize modal body text by the current situation. This modal will be closed immediately once you
+        press the OK button.
+      </div>
+    </a-modal>
   </div>
 </template>
 
@@ -73,7 +79,7 @@ const Options = ref({
     '时间', '标题', '正文', '作者'
   ]
 })
-
+const addVisible = ref(false)
 const handleAdd = (index: any) => {
   form.value.posts.splice(index + 1, 0, {value: ''})
 };

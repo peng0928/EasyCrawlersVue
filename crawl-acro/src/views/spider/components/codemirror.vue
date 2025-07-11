@@ -3,9 +3,9 @@
     <div class="flex gap-5 justify-between">
       <div
           class="flex gap-5 p-2 overflow-x-auto max-w-[62vw] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        <div v-for="(item, index) in tabs" :key="index" class="p-1">
-          <div class="flex gap-2 tabs">
-            <div class="">
+        <div v-for="(item, index) in tabs" :key="index" class="">
+          <div class="flex gap-2 tabs pr-3">
+            <div class="pl-1 pr-1">
               <div
                   class="border-b-2 border-transparent border-blue-500 text-blue-500 transition-colors duration-200 cursor-pointer flex items-center"
                   v-if="item.path===tabActive">
@@ -32,13 +32,17 @@
               </div>
             </div>
             <div class="items-center text-center  extra-content">
-              <a-tooltip content="关闭">
+              <VTooltip>
                 <IconFont
                     type="icon-guanbi1-2"
                     :size="15"
                     class="cursor-pointer"
+                    @click="closeTab(item.path)"
                 />
-              </a-tooltip>
+                <template #popper>
+                  关闭
+                </template>
+              </VTooltip>
             </div>
           </div>
         </div>
@@ -66,7 +70,7 @@
       @input="handleInput"
       @ready="handleReady"
       ref="scrollContainer"
-      class="overflow-y-auto"
+      class="overflow-y-auto "
   />
   <div :class="colorTheme.b">
     <div class="infos">
@@ -152,7 +156,6 @@ const scrollContainer = ref<HTMLElement | null>(null)
 const scrollToBottom = () => {
   nextTick(() => {
     const scrollHeight = view.value
-    console.log(scrollHeight.scrollDOM.scrollHeight);
     view.value.scrollDOM.scrollTo({
       top: scrollHeight.scrollDOM.scrollHeight,
       behavior: 'instant'
@@ -201,12 +204,19 @@ onMounted(() => {
   }
 })
 
-const emit = defineEmits(['update:tabActive']);
+const emit = defineEmits(['update:tabActive', 'update:tabs']);
 const changeTabActive = (e: any) => {
-  console.log(e)
+  console.log(e);
   emit('update:tabActive', e);
 }
-
+const closeTab = (e: any) => {
+  const index = props.tabs.findIndex(item => item.path === e) || 0;
+  const tabActive = props.tabs[index - 1]
+  const path = tabActive ? tabActive.path : ''
+  const filteredArray = props.tabs.filter(item => item.path !== e);
+  emit('update:tabs', filteredArray);
+  emit('update:tabActive', path);
+}
 </script>
 
 
